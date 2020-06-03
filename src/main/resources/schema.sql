@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS `wishlist_items`;
+DROP TABLE IF EXISTS `wishlist_item`;
 DROP TABLE IF EXISTS `date`;
 DROP TABLE IF EXISTS `user_group`;
 DROP TABLE IF EXISTS `group`;
@@ -50,7 +50,7 @@ CREATE TABLE `date` (
 	CONSTRAINT `FK_date_user` FOREIGN KEY (`userId`) REFERENCES `wishlist`.`user` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
-CREATE TABLE `wishlist_items` (
+CREATE TABLE `wishlist_item` (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
 	`status` BIT(1) NOT NULL,
 	`itemName` VARCHAR(100) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `wishlist_items` (
 	`userId` INT(11) NOT NULL,
 	PRIMARY KEY (`id`),
 	UNIQUE INDEX `Index 2` (`itemName`),
-	INDEX `FK_wishlist_items_user` (`userId`),
-	CONSTRAINT `FK_wishlist_items_user` FOREIGN KEY (`userId`) REFERENCES `wishlist`.`user` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+	INDEX `FK_wishlist_item_user` (`userId`),
+	CONSTRAINT `FK_wishlist_item_user` FOREIGN KEY (`userId`) REFERENCES `wishlist`.`user` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 

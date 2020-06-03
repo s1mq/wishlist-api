@@ -1,6 +1,7 @@
-package ee.valiit.wishlistapi.model;
+package ee.valiit.wishlistapi.dto;
 
-public class Wishlist {
+public class WishlistItemDto {
+
     private int id;
     private boolean status;
     private String itemName;
@@ -8,18 +9,7 @@ public class Wishlist {
     private String picture;
     private String description;
     private String link;
-    private int personId;
-
-    public Wishlist(int id, boolean status, String itemName, int price, String picture, String description, String link, int personId) {
-        this.id = id;
-        this.status = status;
-        this.itemName = itemName;
-        this.price = price;
-        this.picture = picture;
-        this.description = description;
-        this.link = link;
-        this.personId = personId;
-    }
+    private int userId;
 
     public int getId() {
         return id;
@@ -77,11 +67,11 @@ public class Wishlist {
         this.link = link;
     }
 
-    public int getPersonId() {
-        return personId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

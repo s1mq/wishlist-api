@@ -41,9 +41,9 @@ public class DateRepository {
                 );
     }
 
-
-
-
+    public void deleteDate(int id) {
+        jdbcTemplate.update("delete from date where id = ?", id);
+    }
 
     private RowMapper<Date> mapDaterows = (row, number) -> {
         Date date = new Date();
@@ -54,7 +54,5 @@ public class DateRepository {
         return date;
     };
 
-    public void deleteDate(int id) {
-        jdbcTemplate.update("delete from date where id = ?", id);
-    }
+
 }

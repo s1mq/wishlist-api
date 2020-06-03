@@ -30,7 +30,7 @@ public class DateService {
 
     public void saveEditDate(DateDto dateDto) {
         Assert.notNull(dateDto, "Date not specified");
-        Assert.hasText(dateDto.getName(), "Date name value not specified");
+        Assert.hasText(dateDto.getName(), "Date name not specified");
         Assert.isTrue(dateDto.getDate() == null || dateDto.getDate().isBefore(LocalDate.now()),
                 "Date has to be in the past");
 

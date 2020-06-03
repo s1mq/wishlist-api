@@ -1,7 +1,9 @@
 package ee.valiit.wishlistapi.util;
 
 import ee.valiit.wishlistapi.dto.DateDto;
+import ee.valiit.wishlistapi.dto.WishlistItemDto;
 import ee.valiit.wishlistapi.model.Date;
+import ee.valiit.wishlistapi.model.WishlistItem;
 
 public class Transformer {
 
@@ -28,4 +30,37 @@ public class Transformer {
 
         return resultingObject;
     }
+
+    public static WishlistItem toWishlistItemModel(WishlistItemDto initialObject) {
+        WishlistItem resultingObject = new WishlistItem();
+        resultingObject.setId(initialObject.getId());
+        resultingObject.setStatus(initialObject.isStatus());
+        resultingObject.setItemName(initialObject.getItemName());
+        resultingObject.setPrice(initialObject.getPrice());
+        resultingObject.setPicture(initialObject.getPicture());
+        resultingObject.setDescription(initialObject.getDescription());
+        resultingObject.setLink(initialObject.getLink());
+        resultingObject.setUserId(initialObject.getUserId());
+        return resultingObject;
+    }
+
+    public static WishlistItemDto toWishlistItemDto(WishlistItem initialObject){
+        if (initialObject == null) {
+            return null;
+        }
+
+        WishlistItemDto resultingObject = new WishlistItemDto();
+        resultingObject.setId(initialObject.getId());
+        resultingObject.setStatus(initialObject.isStatus());
+        resultingObject.setItemName(initialObject.getItemName());
+        resultingObject.setPrice(initialObject.getPrice());
+        resultingObject.setPicture(initialObject.getPicture());
+        resultingObject.setDescription(initialObject.getDescription());
+        resultingObject.setLink(initialObject.getLink());
+        resultingObject.setUserId(initialObject.getUserId());
+
+        return resultingObject;
+    }
+
+
 }
