@@ -12,7 +12,10 @@ INSERT INTO `group` VALUES
     (3, 1, 3);
 
 INSERT INTO `date` VALUES
-    (1, 'Birthday', '1991-08-03', 1);
+    (1, 'Birthday', '1991-08-03', 1),
+    (2, 'Anniversary', '2013-06-13', 1),
+    (3, 'Midsummer\'s eve', '1991-06-24', 1),
+    (4, "Archie's Birthday", '2018-04-06', 1);
 
 INSERT INTO `wishlist_items` VALUES
     (1, 0, 'Item1', 10, 'somepicture.jpg', 'description description', 'https://www.link.com', 1),

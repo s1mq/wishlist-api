@@ -1,14 +1,12 @@
-package ee.valiit.wishlistapi.model;
+package ee.valiit.wishlistapi.dto;
 
 import java.time.LocalDate;
 
-public class Date {
+public class DateDto {
     private int id;
     private String name;
     private LocalDate date;
     private int userId;
-
-
 
     public int getId() {
         return id;
