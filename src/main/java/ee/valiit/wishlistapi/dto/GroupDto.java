@@ -1,12 +1,11 @@
-package ee.valiit.wishlistapi.model;
+package ee.valiit.wishlistapi.dto;
 
-public class Group {
+public class GroupDto {
     private int id;
     private String name;
     private String picture;
     private String description;
     private int userId;
-
 
     public int getId() {
         return id;
