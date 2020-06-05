@@ -1,6 +1,7 @@
 package ee.valiit.wishlistapi.repository;
 
 import ee.valiit.wishlistapi.model.Group;
+import ee.valiit.wishlistapi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -21,6 +22,8 @@ public class GroupRepository {
     public List<Group> getGroupsByUser(int userId) {
         return jdbcTemplate.query("select * from user_group where userId = ?", new Object[]{userId}, mapGroupRows);
     }
+
+
 
     public Group getGroup(int id) {
         List<Group> groups = jdbcTemplate.query("select * from user_group where id = ?", new Object[]{id}, mapGroupRows);

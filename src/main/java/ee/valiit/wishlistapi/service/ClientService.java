@@ -12,6 +12,7 @@ import ee.valiit.wishlistapi.repository.WishlistItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -43,5 +44,24 @@ public class ClientService {
         client.setWishlistItems(items);
         client.setGroups(groups);
         return client;
+    }
+
+    public List<ClientDto> getClientsByGroup(int groupId){
+        List<User> usersByGroup = userRepository.getUsersByGroup(groupId);
+        List<ClientDto> clientsByGroup = new ArrayList<>();
+        for (User el : usersByGroup) {
+            User user = userRepository.getUserByUsername(el.getUsername());
+            List<Date> dates = dateRepository.getDatesByUser(user.getId());
+            List<WishlistItem> items = wishlistItemRepository.getWishlisttItemsByUser(user.getId());
+            ClientDto client = new ClientDto();
+            client.setUserId(user.getId());
+            client.setName(user.getName());
+            client.setPhoto(user.getPhoto());
+            client.setUuid(user.getUuid());
+            client.setDates(dates);
+            client.setWishlistItems(items);
+            clientsByGroup.add(client);
+        }
+        return clientsByGroup;
     }
 }

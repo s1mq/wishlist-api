@@ -3,6 +3,7 @@ package ee.valiit.wishlistapi.repository;
 import ee.valiit.wishlistapi.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -30,15 +31,29 @@ public class UserRepository {
         List<User> users = jdbcTemplate.query(
                 "select * from `user` where `username` = ?",
                 new Object[]{username},
-                (row, number) -> new User(
-                        row.getInt("id"),
-                        row.getString("username"),
-                        row.getString("password"),
-                        row.getString("name"),
-                        row.getString("photo"),
-                        row.getString("uuid")
-                )
+                mapUserRows()
         );
         return users.size() > 0 ? users.get(0) : null;
     }
+
+    public List<User> getUsersByGroup(int groupId) {
+        return jdbcTemplate.query(
+                "select u.* from `user` u inner JOIN `user_per_group` upg on upg.userId = u.id where upg.user_groupId = ?",
+                new Object[]{groupId}, mapUserRows());
+    }
+
+    private RowMapper<User> mapUserRows() {
+        return (row, number) -> new User(
+                row.getInt("id"),
+                row.getString("username"),
+                row.getString("password"),
+                row.getString("name"),
+                row.getString("photo"),
+                row.getString("uuid")
+        );
+    }
+
+
+
+
 }

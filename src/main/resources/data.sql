@@ -1,5 +1,13 @@
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `photo`, `uuid`) VALUES
-    (1, 'admin', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Siim', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88068');
+    (1, 'admin', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Siim', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88068'),
+    (2, 'wallBuilder', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Donald', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88067'),
+    (3, 'imdabes', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Barack', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88066'),
+    (4, 'bestpres007', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'George', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88065'),
+    (5, 'whereAmI', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Jeffrey', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88064'),
+    (6, 'roach', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Geralt', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88063'),
+    (7, 'micah_sucks', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Arthur', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88062'),
+    (8, 'iShootArrows', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Aloy', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88061'),
+    (9, 'imBetterThanArthur', '$2a$10$iz1QiuSVUMFcXdx5Xs2mr.OdTZBuutK0GrKqWS8x2OhaDz8jKV5ei', 'Jennefer', 'somephoto.jpg', '1267139e-362f-45ad-aed0-29a6f2d88060');
 
 INSERT INTO `user_group` VALUES
     (1,'Big Friends', 'https://www.markreeveillustrator.com/s/cc_images/cache_2485373340.jpg', 'Upcoming birthdays for my biggest friends', 1),
@@ -8,8 +16,14 @@ INSERT INTO `user_group` VALUES
 
  INSERT INTO `user_per_group` VALUES
     (1, 1, 1),
-    (2, 1, 2),
-    (3, 1, 3);
+    (2, 2, 1),
+    (3, 3, 1),
+    (4, 4, 1),
+    (5, 5, 1),
+    (6, 6, 2),
+    (7, 7, 2),
+    (8, 8, 2),
+    (9, 9, 2);
 
 INSERT INTO `date` VALUES
     (1, 'Birthday', '1991-08-03', 1),
