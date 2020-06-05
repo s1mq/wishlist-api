@@ -18,6 +18,10 @@ public class GroupRepository {
         return jdbcTemplate.query("select * from user_group", mapGroupRows);
     }
 
+    public List<Group> getGroupsByUser(int userId) {
+        return jdbcTemplate.query("select * from user_group where userId = ?", new Object[]{userId}, mapGroupRows);
+    }
+
     public Group getGroup(int id) {
         List<Group> groups = jdbcTemplate.query("select * from user_group where id = ?", new Object[]{id}, mapGroupRows);
         return groups.size() > 0 ? groups.get(0) : null;

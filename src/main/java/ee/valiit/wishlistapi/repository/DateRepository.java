@@ -23,6 +23,10 @@ public class DateRepository {
         return dates.size() > 0 ? dates.get(0) : null;
     }
 
+    public List<Date> getDatesByUser(int userId) {
+        return jdbcTemplate.query("select * from date where userId = ?", new Object[]{userId}, mapDaterows);
+    }
+
     public boolean dateExists(Date date) {
         Integer count = jdbcTemplate.queryForObject("select count(id) from date where name = ?", new Object[]{date.getName()}, Integer.class);
         return count != null && count > 0;

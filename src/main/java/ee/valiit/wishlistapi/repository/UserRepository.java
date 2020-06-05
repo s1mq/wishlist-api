@@ -30,7 +30,14 @@ public class UserRepository {
         List<User> users = jdbcTemplate.query(
                 "select * from `user` where `username` = ?",
                 new Object[]{username},
-                (row, number) -> new User(row.getInt("id"), row.getString("username"), row.getString("password"), row.getString("name"), row.getString("photo"), row.getString("uuid"))
+                (row, number) -> new User(
+                        row.getInt("id"),
+                        row.getString("username"),
+                        row.getString("password"),
+                        row.getString("name"),
+                        row.getString("photo"),
+                        row.getString("uuid")
+                )
         );
         return users.size() > 0 ? users.get(0) : null;
     }

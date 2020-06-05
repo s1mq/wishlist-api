@@ -18,6 +18,10 @@ public class WishlistItemRepository {
         return jdbcTemplate.query("select * from wishlist_item", mapWishlistItemRows);
     }
 
+    public List<WishlistItem> getWishlisttItemsByUser(int userId){
+        return jdbcTemplate.query("select * from wishlist_item where userId = ?", new Object[]{userId}, mapWishlistItemRows);
+    }
+
     public WishlistItem getWishlistItem(int id) {
         List<WishlistItem> items = jdbcTemplate.query("select * from wishlist_item where id = ?", new Object[]{id}, mapWishlistItemRows);
         return items.size() > 0 ? items.get(0) : null;
