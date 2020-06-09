@@ -28,6 +28,14 @@ public class DateService {
         return Transformer.toDateDto(date);
     }
 
+    public DateDto getDateByUserAndDateId(int id, int dateId) {
+        Assert.isTrue(id > 0, "User ID not specified");
+        Assert.isTrue(dateId > 0, "Date ID not specified");
+        Date date = dateRepository.getDateByUserAndDateId(id, dateId);
+        return Transformer.toDateDto(date);
+
+    }
+
     public void saveEditDate(DateDto dateDto) {
         Assert.notNull(dateDto, "Date not specified");
         Assert.hasText(dateDto.getName(), "Date name not specified");
@@ -48,4 +56,6 @@ public class DateService {
             dateRepository.deleteDate(id);
         }
     }
+
+
 }

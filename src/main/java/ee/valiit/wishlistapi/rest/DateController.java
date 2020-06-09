@@ -25,6 +25,11 @@ public class DateController {
         return dateService.getDate(id);
     }
 
+    @GetMapping("/{id}/{dateId}")
+    public DateDto getDateByUserAndDateId(@PathVariable("id") int id, @PathVariable("dateId") int dateId) {
+        return dateService.getDateByUserAndDateId(id, dateId);
+    }
+
     @PostMapping("/add")
     public void saveEditDate(@RequestBody DateDto dateDto) {
         dateService.saveEditDate(dateDto);

@@ -27,6 +27,11 @@ public class DateRepository {
         return jdbcTemplate.query("select * from date where userId = ?", new Object[]{userId}, mapDaterows);
     }
 
+    public Date getDateByUserAndDateId(int id, int dateId) {
+        List<Date> dates = jdbcTemplate.query("select * from date where userId = ? and id = ?", new Object[]{id, dateId}, mapDaterows);
+        return dates.size() > 0 ? dates.get(0) : null;
+    }
+
     public boolean dateExists(Date date) {
         Integer count = jdbcTemplate.queryForObject("select count(id) from date where name = ?", new Object[]{date.getName()}, Integer.class);
         return count != null && count > 0;
@@ -57,6 +62,7 @@ public class DateRepository {
         date.setUserId(row.getInt("userId"));
         return date;
     };
+
 
 
 }
