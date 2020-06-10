@@ -27,6 +27,13 @@ public class GroupService {
         return Transformer.toGroupDto(group);
     }
 
+    public GroupDto getGroupByUserAndGroupId(int id, int groupId) {
+        Assert.isTrue(id > 0, "User ID not specified");
+        Assert.isTrue(groupId > 0, "Group ID not specified");
+        Group group = groupRepository.getGroupByUserAndGroupId(id, groupId);
+        return Transformer.toGroupDto(group);
+    }
+
     public void saveEditGroup(GroupDto groupDto) {
         Assert.notNull(groupDto, "Group not specified");
         Assert.hasText(groupDto.getName(), "Group name not specified");
@@ -44,4 +51,6 @@ public class GroupService {
             groupRepository.deleteGroup(id);
         }
     }
+
+
 }

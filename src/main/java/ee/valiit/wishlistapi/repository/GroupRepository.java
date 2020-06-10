@@ -30,6 +30,11 @@ public class GroupRepository {
         return groups.size() > 0 ? groups.get(0) : null;
     }
 
+    public Group getGroupByUserAndGroupId(int id, int groupId) {
+        List<Group> groups = jdbcTemplate.query("select * from user_group where userId = ? and id = ?", new Object[]{id, groupId}, mapGroupRows);
+        return groups.size() > 0 ? groups.get(0) : null;
+    }
+
     public boolean groupExists(Group group) {
         Integer count = jdbcTemplate.queryForObject("select count(id) from user_group where name = ?", new Object[]{group.getName()}, Integer.class);
         return count != null && count > 0;
@@ -60,4 +65,6 @@ public class GroupRepository {
         group.setUserId(rs.getInt("userId"));
         return group;
     };
+
+
 }

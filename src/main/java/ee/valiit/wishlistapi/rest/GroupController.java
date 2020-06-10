@@ -4,6 +4,7 @@ import ee.valiit.wishlistapi.dto.GroupDto;
 import ee.valiit.wishlistapi.model.Group;
 import ee.valiit.wishlistapi.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,11 @@ public class GroupController {
     @GetMapping("/{id}")
     public GroupDto getGroup(@PathVariable("id") int id) {
         return groupService.getGroup(id);
+    }
+
+    @GetMapping("{id}/{groupId}")
+    public GroupDto getGroupByUserAndGroupId(@PathVariable("id") int id, @PathVariable("groupId") int groupId) {
+        return groupService.getGroupByUserAndGroupId(id, groupId);
     }
 
     @PostMapping("/add")
