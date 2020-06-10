@@ -1,5 +1,6 @@
 package ee.valiit.wishlistapi.repository;
 
+import ee.valiit.wishlistapi.model.Date;
 import ee.valiit.wishlistapi.model.WishlistItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -18,8 +19,13 @@ public class WishlistItemRepository {
         return jdbcTemplate.query("select * from wishlist_item", mapWishlistItemRows);
     }
 
-    public List<WishlistItem> getWishlisttItemsByUser(int userId){
+    public List<WishlistItem> getWishlistItemsByUser(int userId){
         return jdbcTemplate.query("select * from wishlist_item where userId = ?", new Object[]{userId}, mapWishlistItemRows);
+    }
+
+    public WishlistItem getWishlistItemByUserAndItemId(int id, int itemId) {
+        List<WishlistItem> items = jdbcTemplate.query("select * from wishlist_item where userId = ? and id = ?", new Object[]{id, itemId}, mapWishlistItemRows);
+        return items.size() > 0 ? items.get(0) : null;
     }
 
     public WishlistItem getWishlistItem(int id) {

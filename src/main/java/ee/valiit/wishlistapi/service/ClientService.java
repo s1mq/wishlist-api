@@ -33,7 +33,7 @@ public class ClientService {
     public ClientDto getClient(String username){
         User user = userRepository.getUserByUsername(username);
         List<Date> dates = dateRepository.getDatesByUser(user.getId());
-        List<WishlistItem> items = wishlistItemRepository.getWishlisttItemsByUser(user.getId());
+        List<WishlistItem> items = wishlistItemRepository.getWishlistItemsByUser(user.getId());
         List<Group> groups = groupRepository.getGroupsByUser(user.getId());
         ClientDto client = new ClientDto();
         client.setUserId(user.getId());
@@ -52,7 +52,7 @@ public class ClientService {
         for (User el : usersByGroup) {
             User user = userRepository.getUserByUsername(el.getUsername());
             List<Date> dates = dateRepository.getDatesByUser(user.getId());
-            List<WishlistItem> items = wishlistItemRepository.getWishlisttItemsByUser(user.getId());
+            List<WishlistItem> items = wishlistItemRepository.getWishlistItemsByUser(user.getId());
             ClientDto client = new ClientDto();
             client.setUserId(user.getId());
             client.setName(user.getName());

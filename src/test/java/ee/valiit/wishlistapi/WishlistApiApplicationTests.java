@@ -3,10 +3,10 @@ package ee.valiit.wishlistapi;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class WishlistApiApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 

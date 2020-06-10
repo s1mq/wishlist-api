@@ -26,6 +26,11 @@ public class WishlistItemController {
         return wishlistItemService.getWishlistItem(id);
     }
 
+    @GetMapping("/{id}/{itemId}")
+    public WishlistItemDto getWishlistItemByUserAndItemId(@PathVariable("id") int id, @PathVariable("itemId") int itemId){
+        return wishlistItemService.getWishlistItemByUserAndItemId(id, itemId);
+    }
+
     @PostMapping("/add")
     public void saveEditWishlistItem(@RequestBody WishlistItemDto wishlistItemDto) {
         wishlistItemService.saveEditWishlistItem(wishlistItemDto);

@@ -1,6 +1,7 @@
 package ee.valiit.wishlistapi.service;
 
 import ee.valiit.wishlistapi.dto.WishlistItemDto;
+import ee.valiit.wishlistapi.model.Date;
 import ee.valiit.wishlistapi.model.WishlistItem;
 import ee.valiit.wishlistapi.repository.WishlistItemRepository;
 import ee.valiit.wishlistapi.util.Transformer;
@@ -27,6 +28,13 @@ public class WishlistItemService {
         return Transformer.toWishlistItemDto(item);
     }
 
+    public WishlistItemDto getWishlistItemByUserAndItemId(int id, int itemId) {
+        Assert.isTrue(id > 0, "User ID not specified");
+        Assert.isTrue(itemId > 0, "Item ID not specified");
+        WishlistItem item = wishlistItemRepository.getWishlistItemByUserAndItemId(id, itemId);
+        return Transformer.toWishlistItemDto(item);
+    }
+
     public void saveEditWishlistItem(WishlistItemDto wishlistItemDto) {
         Assert.notNull(wishlistItemDto, "Item not specified");
         Assert.hasText(wishlistItemDto.getItemName(), "Item name not specified");
@@ -44,4 +52,6 @@ public class WishlistItemService {
             wishlistItemRepository.deleteWishlistItem(id);
         }
     }
+
+
 }

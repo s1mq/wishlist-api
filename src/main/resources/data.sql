@@ -12,7 +12,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `photo`, `uuid`) VALUE
 INSERT INTO `user_group` VALUES
     (1,'Big Friends', 'https://www.markreeveillustrator.com/s/cc_images/cache_2485373340.jpg', 'Upcoming birthdays for my biggest friends', 1),
     (2, 'Gaming pals', 'https://i.pinimg.com/236x/07/3d/71/073d71dbaee93e4ba2fc80810815667a--logo-playstation-gaming-memes.jpg', 'Protagonists from different universes', 1),
-    (3, 'Random', 'https://www.fjallraven.com/globalassets/catalogs/fjallraven/f5/f536/f53602/f616/7323450207120_ss18_a_keb_endurance_2_21.jpg', '', 1);
+    (3, 'Random1', 'https://www.yektravel.com/wp-content/plugins/profilegrid-user-profiles-groups-and-communities/public/partials/images/default-group.png', '', 1),
+    (4, 'Random2', 'https://www.yektravel.com/wp-content/plugins/profilegrid-user-profiles-groups-and-communities/public/partials/images/default-group.png', '', 1),
+    (5, 'Random3', 'https://www.yektravel.com/wp-content/plugins/profilegrid-user-profiles-groups-and-communities/public/partials/images/default-group.png', '', 1);
 
  INSERT INTO `user_per_group` VALUES
     (1, 1, 1),
