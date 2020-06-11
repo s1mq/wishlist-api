@@ -36,6 +36,11 @@ public class WishlistItemController {
         wishlistItemService.saveEditWishlistItem(wishlistItemDto);
     }
 
+    @PostMapping("/add/{userId}/{itemId}")
+    public void changeItemStatus(@RequestBody WishlistItemDto wishlistItemDto) {
+        wishlistItemService.changeItemStatus(wishlistItemDto);
+    }
+
     @DeleteMapping("/{id}")
     public void deleteWishlistItem(@PathVariable("id") int id) {
         wishlistItemService.deleteWishlistItem(id);

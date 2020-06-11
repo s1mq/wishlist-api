@@ -47,11 +47,20 @@ public class WishlistItemService {
         }
     }
 
+    public void changeItemStatus(WishlistItemDto wishlistItemDto) {
+        Assert.isTrue(wishlistItemDto.getUserId() > 0, "User ID not specified");
+        Assert.isTrue(wishlistItemDto.getId() > 0, "Item ID not specified");
+        WishlistItem wishlistItem = Transformer.toWishlistItemModel(wishlistItemDto);
+        wishlistItemRepository.changeItemStatus(wishlistItem);
+
+    }
+
     public void deleteWishlistItem(int id) {
         if (id > 0) {
             wishlistItemRepository.deleteWishlistItem(id);
         }
     }
+
 
 
 }

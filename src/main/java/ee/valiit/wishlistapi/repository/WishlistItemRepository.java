@@ -52,6 +52,10 @@ public class WishlistItemRepository {
                 );
     }
 
+    public void changeItemStatus(WishlistItem wishlistItem) {
+        jdbcTemplate.update("update wishlist_item set `status` = ? where id = ? and userId = ?", wishlistItem.isStatus(), wishlistItem.getId(), wishlistItem.getUserId());
+    }
+
     public void deleteWishlistItem(int id) {
         jdbcTemplate.update("delete from wishlist_item where id = ?", id);
     }
@@ -68,5 +72,6 @@ public class WishlistItemRepository {
         wishlistItem.setUserId(rs.getInt("userId"));
         return wishlistItem;
     });
+
 
 }

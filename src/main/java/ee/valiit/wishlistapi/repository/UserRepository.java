@@ -36,6 +36,15 @@ public class UserRepository {
         return users.size() > 0 ? users.get(0) : null;
     }
 
+    public User getUserById(int id) {
+        List<User> users = jdbcTemplate.query(
+                "select * from `user` where `id` = ?",
+                new Object[]{id},
+                mapUserRows()
+        );
+        return users.size() > 0 ? users.get(0) : null;
+    }
+
     public List<User> getUsersByGroup(int groupId) {
         return jdbcTemplate.query(
                 "select u.* from `user` u inner JOIN `user_per_group` upg on upg.userId = u.id where upg.user_groupId = ?",

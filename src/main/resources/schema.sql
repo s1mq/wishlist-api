@@ -45,7 +45,6 @@ CREATE TABLE `date` (
 	`date` DATE NOT NULL,
 	`userId` INT(11) NOT NULL,
 	PRIMARY KEY (`id`),
-	UNIQUE INDEX `Index 2` (`name`),
 	INDEX `FK_date_user` (`userId`),
 	CONSTRAINT `FK_date_user` FOREIGN KEY (`userId`) REFERENCES `wishlist`.`user` (`id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 );

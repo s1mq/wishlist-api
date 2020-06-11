@@ -46,7 +46,7 @@ public class DateService {
         if (date.getId() != 0 && date.getId() > 0) {
             dateRepository.updateDate(date);
         } else {
-            Assert.isTrue(!dateRepository.dateExists(date), "Date with specified name already exists");
+//            Assert.isTrue(!dateRepository.dateExists(date), "Date with specified name already exists");
             dateRepository.addDate(date);
         }
     }

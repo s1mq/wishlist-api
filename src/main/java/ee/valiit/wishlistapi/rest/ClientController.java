@@ -20,6 +20,11 @@ public class ClientController {
         return clientService.getClient(user);
     }
 
+    @GetMapping("/user/{id}")
+    public ClientDto getClientById(@PathVariable("id") int id) {
+        return clientService.getClientById(id);
+    }
+
     @GetMapping("/group/{groupId}")
     public List<ClientDto> getClientsByGroup(@PathVariable("groupId") int groupId) {
         return clientService.getClientsByGroup(groupId);
