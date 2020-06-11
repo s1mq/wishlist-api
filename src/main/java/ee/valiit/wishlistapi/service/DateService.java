@@ -39,8 +39,8 @@ public class DateService {
     public void saveEditDate(DateDto dateDto) {
         Assert.notNull(dateDto, "Date not specified");
         Assert.hasText(dateDto.getName(), "Date name not specified");
-        Assert.isTrue(dateDto.getDate() == null || dateDto.getDate().isBefore(LocalDate.now()),
-                "Date has to be in the past");
+//        Assert.isTrue(dateDto.getDate() == null || dateDto.getDate().isBefore(LocalDate.now()),
+//                "Date has to be in the past");
 
         Date date = Transformer.toDateModel(dateDto);
         if (date.getId() != 0 && date.getId() > 0) {
